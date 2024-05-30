@@ -5,13 +5,13 @@ import 'package:get/get.dart';
 
 class FirstpageController extends GetxController {
   //TODO: Implement FirstpageController
-final firstteamController= TextEditingController();
+  final firstteamController = TextEditingController();
  final secondteamController= TextEditingController();
+  // RxList<String> names = <String>[].obs;
 
- void next(){
-  String name1=firstteamController.text;
-  String name2=secondteamController.text;
-  UsersService.to.addTeamtoList(name1, name2);
-  Get.toNamed(Routes.SETTINGS);
- }
+  void next() {
+    String name1 = firstteamController.text;
+    UsersService.to.addTeamtoList(name1);
+    Get.toNamed(Routes.GAME);
+  }
 }

@@ -6,8 +6,13 @@ class UsersService extends GetxService {
     return this;
   }
 
-  final List nameTeam = [];
-  void addTeamtoList(String team1, String team2) {
+  List nameTeam = [];
+  void addTeamtoList(String team1) {
     nameTeam.add(team1);
   }
+  
+
+  // void savesettings(String word){
+  //   words=word;
+  // }
 }

@@ -10,15 +10,40 @@ class GameView extends GetView<GameController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('GameView'),
+        title: const Text('Игра'),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text(
-          'GameView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+      body: Center(
+          child: Column(
+        children: [
+          Obx(() =>
+              Text(controller.word.value, style: TextStyle(fontSize: 40))),
+          SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('+'),
+              ),
+              SizedBox(width: 20),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('-'),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Следующая команда'),
+          ),
+        ],
+      )),
     );
   }
 }

@@ -83,6 +83,7 @@ class FirstpageView extends GetView<FirstpageController> {
                 ),
               ),
             ),
+
           ],
         ),
       ),
