@@ -1,3 +1,4 @@
+import 'package:exam/app/models/teams.dart';
 import 'package:get/get.dart';
 
 class UsersService extends GetxService {
@@ -5,13 +6,17 @@ class UsersService extends GetxService {
   Future<UsersService> init() async {
     return this;
   }
+int scoreTeam1=0;
+  List<Teams> nameTeam = [];
 
-  List nameTeam = [];
-  void addTeamtoList(String team1) {
-    nameTeam.add(team1);
+  void addTeamtoList(String team) {
+    Teams newTeam = Teams(nameTeam: team, score: 0, moreScore: 0);
+    nameTeam.add(newTeam); 
+    print(nameTeam);
   }
-  
 
+void plusScore(int score){
+}
   // void savesettings(String word){
   //   words=word;
   // }

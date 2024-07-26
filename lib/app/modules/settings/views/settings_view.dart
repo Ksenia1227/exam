@@ -52,71 +52,71 @@ class SettingsView extends GetView<SettingsController> {
                 ),
               ),
               SizedBox(height: 30),
-              Obx(()=>Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                      height: 80,
-                      width: 100,
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(
-                          color: controller.selectedIndex == 30
-                              ? const Color.fromARGB(255, 24, 127, 211)
-                              : Colors.transparent,
-                          width: 2,
-                        ),
-                      ),
-                      child: ElevatedButton(
-                          onPressed: () {
-                            controller.selectWords(0);
-                          },
-                          child: Text("30"))),
-                  SizedBox(width: 20),
-                  Container(
-                      height: 80,
-                      width: 100,
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(
-                          color: controller.selectedIndex == 60
-                              ? const Color.fromARGB(255, 24, 127, 211)
-                              : Colors.transparent,
-                          width: 2,
-                        ),
-                      ),
-                  child: ElevatedButton(
-                      onPressed: () {
-                        controller.selectWords(1);
-                      },
-                      child: Text("60"))),
-                  SizedBox(width: 20),
-                  Container(
-                      height: 80,
-                      width: 100,
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(
-                          color: controller.selectedIndex == 90
-                              ? const Color.fromARGB(255, 24, 127, 211)
-                              : Colors.transparent,
-                          width: 2,
-                        ),
-                      ),
-                  child: ElevatedButton(
-                      onPressed: () {
-                        controller.selectWords(2);
-                      },
-                      child: Text("100")))
-                ],
-              )
-          )],
+              Obx(() => Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                          height: 80,
+                          width: 100,
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              color: controller.selectedIndex == 0
+                                  ? const Color.fromARGB(255, 24, 127, 211)
+                                  : Colors.transparent,
+                              width: 2,
+                            ),
+                          ),
+                          child: ElevatedButton(
+                              onPressed: () {
+                                controller.selectWords(0);
+                              },
+                              child: Text("30"))),
+                      SizedBox(width: 20),
+                      Container(
+                          height: 80,
+                          width: 100,
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              color: controller.selectedIndex == 1
+                                  ? const Color.fromARGB(255, 24, 127, 211)
+                                  : Colors.transparent,
+                              width: 2,
+                            ),
+                          ),
+                          child: ElevatedButton(
+                              onPressed: () {
+                                controller.selectWords(1);
+                              },
+                              child: Text("60"))),
+                      SizedBox(width: 20),
+                      Container(
+                          height: 80,
+                          width: 100,
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              color: controller.selectedIndex == 2
+                                  ? const Color.fromARGB(255, 24, 127, 211)
+                                  : Colors.transparent,
+                              width: 2,
+                            ),
+                          ),
+                          child: ElevatedButton(
+                              onPressed: () {
+                                controller.selectWords(2);
+                              },
+                              child: Text("100")))
+                    ],
+                  ))
+            ],
           ),
         ));
   }

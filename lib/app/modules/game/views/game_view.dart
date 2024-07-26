@@ -25,12 +25,15 @@ class GameView extends GetView<GameController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.scoreTeams();
+                  controller.nextTeam();
+                },
                 child: Text('+'),
               ),
               SizedBox(width: 20),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {controller.nextWord();},
                 child: Text('-'),
               ),
             ],
@@ -42,6 +45,7 @@ class GameView extends GetView<GameController> {
             onPressed: () {},
             child: Text('Следующая команда'),
           ),
+          Text(''),
         ],
       )),
     );
