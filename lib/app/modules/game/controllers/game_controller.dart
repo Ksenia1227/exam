@@ -44,15 +44,15 @@ class GameController extends GetxController {
     if (numberTeam < teams.length - 1) {
       print(numberTeam);
       print(teams.length);
-      numberTeam += 1;
+      numberTeam += 1;      
 
-      Get.offAndToNamed(Routes.SCORE, arguments: {
-        'listCorrectWords': correctWords,
-        'listUncorrectWords': uncorrectWords,
-        'ScoreTeams': scoreTeam,
-        'indexTeam':numberTeam,
-        'score':scoreTeam
-      });
+      // Get.offAndToNamed(Routes.SCORE, arguments: {
+      //   'listCorrectWords': correctWords,
+      //   'listUncorrectWords': uncorrectWords,
+      //   'ScoreTeams': scoreTeam,
+      //   'indexTeam':numberTeam,
+      //   'score':scoreTeam
+      // });
     }
     if (numberTeam == teams.length - 1) {
       numberTeam = 0;
