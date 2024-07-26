@@ -7,6 +7,7 @@ abstract class Routes {
   static const SETTINGS = _Paths.SETTINGS;
   static const GAME = _Paths.GAME;
   static const ELIAS = _Paths.ELIAS;
+  static const SCORE = _Paths.SCORE;
 }
 
 abstract class _Paths {
@@ -15,4 +16,5 @@ abstract class _Paths {
   static const SETTINGS = '/settings';
   static const GAME = '/game';
   static const ELIAS = '/elias';
+  static const SCORE = '/score';
 }

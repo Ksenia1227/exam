@@ -6,6 +6,8 @@ import '../modules/firstpage/bindings/firstpage_binding.dart';
 import '../modules/firstpage/views/firstpage_view.dart';
 import '../modules/game/bindings/game_binding.dart';
 import '../modules/game/views/game_view.dart';
+import '../modules/score/bindings/score_binding.dart';
+import '../modules/score/views/score_view.dart';
 import '../modules/settings/bindings/settings_binding.dart';
 import '../modules/settings/views/settings_view.dart';
 
@@ -36,6 +38,11 @@ class AppPages {
       name: _Paths.ELIAS,
       page: () => const EliasView(),
       binding: EliasBinding(),
+    ),
+    GetPage(
+      name: _Paths.SCORE,
+      page: () => const ScoreView(),
+      binding: ScoreBinding(),
     ),
   ];
 }

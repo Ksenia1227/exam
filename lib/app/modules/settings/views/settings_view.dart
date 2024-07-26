@@ -18,7 +18,7 @@ class SettingsView extends GetView<SettingsController> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Get.toNamed(Routes.GAME);
+            controller.next();
           },
           child: Text('НАЧАТЬ',
               style: TextStyle(
@@ -28,12 +28,76 @@ class SettingsView extends GetView<SettingsController> {
         body: Center(
           child: Column(
             children: [
-              // SizedBox(height: 20),
-              // const Text('Время в секундах:',
-              //     style: TextStyle(
-              //       fontSize: 18,
-              //     )),
-              // SizedBox(height: 30),
+              SizedBox(height: 20),
+              const Text('Время в секундах:',
+                  style: TextStyle(
+                    fontSize: 18,
+                  )),
+              SizedBox(height: 30),
+              Obx(() => Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                          height: 80,
+                          width: 100,
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              color: controller.selectedTimeIndex == 30
+                                  ? const Color.fromARGB(255, 24, 127, 211)
+                                  : Colors.transparent,
+                              width: 2,
+                            ),
+                          ),
+                          child: ElevatedButton(
+                              onPressed: () {
+                                controller.selectTimes(30);
+                              },
+                              child: Text("30"))),
+                      SizedBox(width: 20),
+                      Container(
+                          height: 80,
+                          width: 100,
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              color: controller.selectedTimeIndex == 60
+                                  ? const Color.fromARGB(255, 24, 127, 211)
+                                  : Colors.transparent,
+                              width: 2,
+                            ),
+                          ),
+                          child: ElevatedButton(
+                              onPressed: () {
+                                controller.selectTimes(60);
+                              },
+                              child: Text("60"))),
+                      SizedBox(width: 20),
+                      Container(
+                          height: 80,
+                          width: 100,
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              color: controller.selectedTimeIndex == 120
+                                  ? const Color.fromARGB(255, 24, 127, 211)
+                                  : Colors.transparent,
+                              width: 2,
+                            ),
+                          ),
+                          child: ElevatedButton(
+                              onPressed: () {
+                                controller.selectTimes(120);
+                              },
+                              child: Text("120")))
+                    ],
+                  )),
               // Row(
               //   mainAxisAlignment: MainAxisAlignment.center,
               //   children: [
@@ -63,7 +127,7 @@ class SettingsView extends GetView<SettingsController> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
                             border: Border.all(
-                              color: controller.selectedIndex == 0
+                              color: controller.selectedIndex == 10
                                   ? const Color.fromARGB(255, 24, 127, 211)
                                   : Colors.transparent,
                               width: 2,
@@ -71,9 +135,9 @@ class SettingsView extends GetView<SettingsController> {
                           ),
                           child: ElevatedButton(
                               onPressed: () {
-                                controller.selectWords(0);
+                                controller.selectWords(10);
                               },
-                              child: Text("30"))),
+                              child: Text("10"))),
                       SizedBox(width: 20),
                       Container(
                           height: 80,
@@ -83,7 +147,7 @@ class SettingsView extends GetView<SettingsController> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
                             border: Border.all(
-                              color: controller.selectedIndex == 1
+                              color: controller.selectedIndex == 50
                                   ? const Color.fromARGB(255, 24, 127, 211)
                                   : Colors.transparent,
                               width: 2,
@@ -91,9 +155,9 @@ class SettingsView extends GetView<SettingsController> {
                           ),
                           child: ElevatedButton(
                               onPressed: () {
-                                controller.selectWords(1);
+                                controller.selectWords(50);
                               },
-                              child: Text("60"))),
+                              child: Text("50"))),
                       SizedBox(width: 20),
                       Container(
                           height: 80,
@@ -103,7 +167,7 @@ class SettingsView extends GetView<SettingsController> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
                             border: Border.all(
-                              color: controller.selectedIndex == 2
+                              color: controller.selectedIndex == 100
                                   ? const Color.fromARGB(255, 24, 127, 211)
                                   : Colors.transparent,
                               width: 2,
@@ -111,9 +175,49 @@ class SettingsView extends GetView<SettingsController> {
                           ),
                           child: ElevatedButton(
                               onPressed: () {
-                                controller.selectWords(2);
+                                controller.selectWords(100);
                               },
-                              child: Text("100")))
+                              child: Text("100"))),
+                      SizedBox(width: 20),
+                      Container(
+                          height: 80,
+                          width: 100,
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              color: controller.selectedIndex == 150
+                                  ? const Color.fromARGB(255, 24, 127, 211)
+                                  : Colors.transparent,
+                              width: 2,
+                            ),
+                          ),
+                          child: ElevatedButton(
+                              onPressed: () {
+                                controller.selectWords(150);
+                              },
+                              child: Text("150"))),
+                      SizedBox(width: 20),
+                      Container(
+                          height: 80,
+                          width: 100,
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                              color: controller.selectedIndex == 200
+                                  ? const Color.fromARGB(255, 24, 127, 211)
+                                  : Colors.transparent,
+                              width: 2,
+                            ),
+                          ),
+                          child: ElevatedButton(
+                              onPressed: () {
+                                controller.selectWords(200);
+                              },
+                              child: Text("200")))
                     ],
                   ))
             ],
