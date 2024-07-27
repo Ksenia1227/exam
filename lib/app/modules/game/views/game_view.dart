@@ -1,3 +1,4 @@
+import 'package:exam/app/modules/score/controllers/score_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -67,7 +68,7 @@ class GameView extends GetView<GameController> {
     return  Center(
            child: Column(
         children: [
-          Text('Команда: ${controller.teams[controller.numberTeam].nameTeam}'),
+          Obx(()=> Text('Команда: ${controller.teams[controller.numberTeam.value].nameTeam}')),
           Obx(()=> Text(
               'Оставшееся время: ${controller.remainingTime.value} секунд',
               style: TextStyle(fontSize: 24),

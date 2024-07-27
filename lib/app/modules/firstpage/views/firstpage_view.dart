@@ -90,11 +90,7 @@ class FirstpageView extends GetView<FirstpageController> {
             ),
             ElevatedButton(
               onPressed: () {
-                if (controller.teams.isEmpty) {
-                  // SnackBar(
-                  // content: Text('Пожалуйста, добавьте команды!'),
-                  // duration: Duration(seconds: 3)
-              // );
+                if (controller.teams.length<2) {
             } else {
                 Get.toNamed(Routes.SETTINGS);
               }},

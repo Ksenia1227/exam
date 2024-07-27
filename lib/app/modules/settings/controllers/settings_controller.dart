@@ -1,3 +1,4 @@
+import 'package:exam/app/services/users_service.dart';
 import 'package:get/get.dart';
 import 'package:exam/app/routes/app_pages.dart';
 
@@ -15,6 +16,8 @@ class SettingsController extends GetxController {
     selectedTimeIndex.value = index;
   }
   void next(){
-    Get.toNamed(Routes.GAME, arguments: {'selectedTime': selectedTimeIndex.value,'selectedWords': selectedIndex.value });
+    UsersService.to.numberWords=selectedIndex.value;
+    UsersService.to.time=selectedTimeIndex.value;
+    Get.toNamed(Routes.GAME);
   }
 }
