@@ -18,7 +18,7 @@ class GameController extends GetxController {
   List get words => [...DataService.to.words];
   int score = 0;
   int scoreTeam = 0;
-  List get teams => UsersService.to.nameTeam;
+  List teams = UsersService.to.nameTeam;
   RxInt numberTeam = 0.obs;
   var gameStarted = false.obs;
 

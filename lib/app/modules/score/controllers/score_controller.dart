@@ -11,8 +11,8 @@ class ScoreController extends GetxController {
   //  late List<String> list=UsersService.to.words;
   // RxList<Words> list = <Words>[].obs;
   List<Words> list = (UsersService.to.words).obs;
-  
-  List get teams => UsersService.to.nameTeam;
+
+  List teams = UsersService.to.nameTeam;
   int score = 0;
   int oldscore = 0;
 
@@ -45,13 +45,13 @@ class ScoreController extends GetxController {
     final updatedScore = UsersService.to.nameTeam[index].copyWith(score: sc);
     UsersService.to.nameTeam[index] = updatedScore;
     if (sc >= UsersService.to.numberWords) {
-      Get.toNamed(Routes.END, arguments: {
+      Get.offAndToNamed(Routes.END, arguments: {
         'arg1': sc,
         'arg2': UsersService.to.nameTeam[index].nameTeam
       });
     } else {
       // list.clear();
-      Get.toNamed(Routes.GAME);
+      Get.offAndToNamed(Routes.GAME);
     }
   }
 

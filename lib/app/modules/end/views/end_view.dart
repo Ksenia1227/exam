@@ -1,3 +1,5 @@
+import 'package:exam/app/routes/app_pages.dart';
+import 'package:exam/app/services/users_service.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -23,6 +25,13 @@ class EndView extends GetView<EndController> {
               style: TextStyle(fontSize: 20),
             ),
             Text('Счёт: ${sc}'),
+            ElevatedButton(
+                onPressed: () {
+                  UsersService.to.nameTeam.clear();
+                  print(UsersService.to.nameTeam);
+                  Get.offAndToNamed(Routes.FIRSTPAGE);
+                },
+                child: Text('Меню'))
           ]),
         ));
   }

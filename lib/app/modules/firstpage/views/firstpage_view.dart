@@ -92,6 +92,7 @@ class FirstpageView extends GetView<FirstpageController> {
               onPressed: () {
                 if (controller.teams.length<2) {
             } else {
+              controller.teams.clear();
                 Get.toNamed(Routes.SETTINGS);
               }},
               child: Text(
