@@ -12,7 +12,9 @@ class ScoreView extends GetView<ScoreController> {
   Widget build(BuildContext context) {
     final arg = Get.arguments;
     final arg1 = arg['indexTeam'];
+    // print(controller.list);
     return Scaffold(
+        backgroundColor: Color.fromARGB(255, 123, 123, 123),
         appBar: AppBar(
           title: Text('Результат команды ${controller.teams[arg1].nameTeam}'),
           centerTitle: true,
@@ -26,8 +28,7 @@ class ScoreView extends GetView<ScoreController> {
             ),
             ElevatedButton(
               onPressed: () {
-                UsersService.to.words.clear();
-                Get.toNamed(Routes.GAME);
+                controller.next(arg1);
               },
               child: Text('Далее', style: TextStyle(fontSize: 20)),
             ),
@@ -35,22 +36,31 @@ class ScoreView extends GetView<ScoreController> {
                   itemCount: controller.list.length,
                   itemBuilder: (context, index) {
                     final word = controller.list[index];
-                    return ListTile(
-                      title: Text(word.word),
-                      trailing: IconButton(
-                        icon: Icon(
-                          word.correct ? Icons.check : Icons.clear,
-                          color: word.correct ? Colors.green : Colors.red,
-                        ),
-                        onPressed: () {
-                          controller.updateWord(index);// Предполагая, что у вас есть метод update
-                        },
-                      ),
+                    return
+                      Card(
+                          color: Color.fromARGB(255, 218, 220, 220),
+                          elevation: 2,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 7, horizontal: 200),
+                          child: ListTile(
+                            title: Text(word.word),
+                            trailing: IconButton(
+                              icon: Icon(
+                                word.correct ? Icons.check : Icons.clear,
+                                color: word.correct ? Colors.green : Colors.red,
+                              ),
+                              onPressed: () {
+                                controller.updateWord(index);
+                              },
+                            ),
+                          ),
                     );
                   },
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
-                ))
+                )),
           ])),
         ));
   }

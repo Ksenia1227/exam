@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/elias/bindings/elias_binding.dart';
 import '../modules/elias/views/elias_view.dart';
+import '../modules/end/bindings/end_binding.dart';
+import '../modules/end/views/end_view.dart';
 import '../modules/firstpage/bindings/firstpage_binding.dart';
 import '../modules/firstpage/views/firstpage_view.dart';
 import '../modules/game/bindings/game_binding.dart';
@@ -43,6 +45,11 @@ class AppPages {
       name: _Paths.SCORE,
       page: () => const ScoreView(),
       binding: ScoreBinding(),
+    ),
+    GetPage(
+      name: _Paths.END,
+      page: () => const EndView(),
+      binding: EndBinding(),
     ),
   ];
 }

@@ -24,7 +24,7 @@ class GameController extends GetxController {
 
   void startGame() {
     gameStarted.value = true;
-    numberTeam.value=UsersService.to.numberTeam;
+    numberTeam.value = UsersService.to.numberTeam;
   }
 
   var remainingTime = 10.obs;
@@ -44,15 +44,16 @@ class GameController extends GetxController {
   }
 
   void navigateToPage() async {
-    Words x=  Words(word:word.value , correct:false);
-     correctWords.add(x);
+    Words x = Words(word: word.value, correct: false);
+    correctWords.add(x);
     UsersService.to.addwords(correctWords);
-    print('user ${UsersService.to.numberTeam}');
+    // 00000000('words ${UsersService.to.words}');
     if (numberTeam.value < teams.length - 1) {
       int numberTeam1 = numberTeam.value;
       numberTeam.value += 1;
-      // scorecontroller.addwords();
-      UsersService.to.numberTeam=numberTeam.value;
+
+      UsersService.to.numberTeam = numberTeam.value;
+      // scorecontroller.upDate();
       Get.offAndToNamed(Routes.SCORE, arguments: {
         'ScoreTeams': scoreTeam,
         'indexTeam': numberTeam1,
@@ -60,8 +61,8 @@ class GameController extends GetxController {
     } else if (numberTeam.value == teams.length - 1) {
       int numberTeam1 = numberTeam.value;
       numberTeam.value = 0;
-      // scorecontroller.addwords();
-      UsersService.to.numberTeam=numberTeam.value;
+      UsersService.to.numberTeam = numberTeam.value;
+      // scorecontroller.upDate();
       Get.offAndToNamed(Routes.SCORE, arguments: {
         'ScoreTeams': scoreTeam,
         'indexTeam': numberTeam1,
@@ -98,13 +99,13 @@ class GameController extends GetxController {
   // }
   void scorerightTeams() {
     scoreTeam += 1;
-    Words x= Words(word:word.value , correct:true);
+    Words x = Words(word: word.value, correct: true);
     correctWords.add(x);
     nextWord();
   }
 
   void scoreleftTeams() {
-    Words x= Words(word:word.value , correct:false);
+    Words x = Words(word: word.value, correct: false);
     correctWords.add(x);
     nextWord();
   }

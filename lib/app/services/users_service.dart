@@ -18,11 +18,12 @@ class UsersService extends GetxService {
   void addTeamtoList(String team) {
     Teams newTeam = Teams(nameTeam: team, score: 0, moreScore: 0);
     nameTeam.add(newTeam);
-    print(nameTeam);
+    // print(nameTeam);
   }
 
   void addwords(List<Words> allwords) {
     words = allwords;
+    // print(words);
   }
 
   void plusScore(int score) {}
