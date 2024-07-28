@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:exam/app/models/words.dart';
 import 'package:exam/app/modules/score/controllers/score_controller.dart';
 import 'package:exam/app/routes/app_pages.dart';
 import 'package:exam/app/services/data_service.dart';
@@ -10,11 +11,10 @@ import 'package:get/get_rx/get_rx.dart';
 
 class GameController extends GetxController {
   //TODO: Implement GameController
-  final scorecontroller = Get.put(ScoreController());
+  // final scorecontroller = Get.put(ScoreController());
   RxString word = ''.obs;
   List oldWords = [];
-  List<String> correctWords = [];
-  List uncorrectWords = [];
+  List<Words> correctWords = [];
   List get words => [...DataService.to.words];
   int score = 0;
   int scoreTeam = 0;
@@ -44,12 +44,14 @@ class GameController extends GetxController {
   }
 
   void navigateToPage() async {
+    Words x=  Words(word:word.value , correct:false);
+     correctWords.add(x);
     UsersService.to.addwords(correctWords);
     print('user ${UsersService.to.numberTeam}');
     if (numberTeam.value < teams.length - 1) {
       int numberTeam1 = numberTeam.value;
       numberTeam.value += 1;
-      scorecontroller.addwords();
+      // scorecontroller.addwords();
       UsersService.to.numberTeam=numberTeam.value;
       Get.offAndToNamed(Routes.SCORE, arguments: {
         'ScoreTeams': scoreTeam,
@@ -58,7 +60,7 @@ class GameController extends GetxController {
     } else if (numberTeam.value == teams.length - 1) {
       int numberTeam1 = numberTeam.value;
       numberTeam.value = 0;
-      scorecontroller.addwords();
+      // scorecontroller.addwords();
       UsersService.to.numberTeam=numberTeam.value;
       Get.offAndToNamed(Routes.SCORE, arguments: {
         'ScoreTeams': scoreTeam,
@@ -96,12 +98,14 @@ class GameController extends GetxController {
   // }
   void scorerightTeams() {
     scoreTeam += 1;
-    correctWords.add(word.value);
+    Words x= Words(word:word.value , correct:true);
+    correctWords.add(x);
     nextWord();
   }
 
   void scoreleftTeams() {
-    correctWords.add(word.value);
+    Words x= Words(word:word.value , correct:false);
+    correctWords.add(x);
     nextWord();
   }
 

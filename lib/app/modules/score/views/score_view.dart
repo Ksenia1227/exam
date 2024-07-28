@@ -10,11 +10,11 @@ class ScoreView extends GetView<ScoreController> {
   const ScoreView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-     final arg=Get.arguments;
-  final arg1=arg['indexTeam'];
+    final arg = Get.arguments;
+    final arg1 = arg['indexTeam'];
     return Scaffold(
         appBar: AppBar(
-          title:  Text('Результат команды ${controller.teams[arg1].nameTeam}'),
+          title: Text('Результат команды ${controller.teams[arg1].nameTeam}'),
           centerTitle: true,
         ),
         body: SingleChildScrollView(
@@ -26,7 +26,7 @@ class ScoreView extends GetView<ScoreController> {
             ),
             ElevatedButton(
               onPressed: () {
-                 UsersService.to.words.clear();
+                UsersService.to.words.clear();
                 Get.toNamed(Routes.GAME);
               },
               child: Text('Далее', style: TextStyle(fontSize: 20)),
@@ -34,14 +34,22 @@ class ScoreView extends GetView<ScoreController> {
             Obx(() => ListView.builder(
                   itemCount: controller.list.length,
                   itemBuilder: (context, index) {
+                    final word = controller.list[index];
                     return ListTile(
-                      title: Text(controller.list[index]),
+                      title: Text(word.word),
+                      trailing: IconButton(
+                        icon: Icon(
+                          word.correct ? Icons.check : Icons.clear,
+                          color: word.correct ? Colors.green : Colors.red,
+                        ),
+                        onPressed: () {
+                          controller.updateWord(index);// Предполагая, что у вас есть метод update
+                        },
+                      ),
                     );
                   },
-                  shrinkWrap:
-                      true, 
-                  physics:
-                      NeverScrollableScrollPhysics(), 
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
                 ))
           ])),
         ));

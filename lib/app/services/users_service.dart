@@ -1,4 +1,5 @@
 import 'package:exam/app/models/teams.dart';
+import 'package:exam/app/models/words.dart';
 import 'package:get/get.dart';
 
 class UsersService extends GetxService {
@@ -9,7 +10,7 @@ class UsersService extends GetxService {
 
   int scoreTeam1 = 0;
   List<Teams> nameTeam = [];
-  List<String> words = [];
+  List<Words> words = [];
   int numberWords=0;
   int time=0;
   int numberTeam=0;
@@ -20,7 +21,7 @@ class UsersService extends GetxService {
     print(nameTeam);
   }
 
-  void addwords(List<String> allwords) {
+  void addwords(List<Words> allwords) {
     words = allwords;
   }
 
